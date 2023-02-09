@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: WakeIceCreamDB:3306
--- Generation Time: Feb 06, 2023 at 11:30 PM
+-- Host: db:3306
+-- Generation Time: Feb 07, 2023 at 05:19 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.19
 
@@ -47,8 +47,8 @@ CREATE TABLE `Product` (
   `Product_Price` decimal(7,2) NOT NULL,
   `Product_Quantity` bigint NOT NULL,
   `Product_Status` varchar(255) NOT NULL,
-  `Supplier_ID` bigint NOT NULL,
-  `Category_ID` bigint NOT NULL
+  `Supplier_ID` bigint UNSIGNED NOT NULL,
+  `Category_ID` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE `Staff` (
   `Phone` bigint NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Role_ID` bigint NOT NULL
+  `Role_ID` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -149,6 +149,28 @@ ALTER TABLE `Supplier`
 --
 ALTER TABLE `Staff`
   MODIFY `Staff_ID` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Category`
+--
+ALTER TABLE `Category`
+  ADD CONSTRAINT `Category_ibfk_1` FOREIGN KEY (`Category_ID`) REFERENCES `Product` (`Category_ID`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Role`
+--
+ALTER TABLE `Role`
+  ADD CONSTRAINT `Role_ibfk_1` FOREIGN KEY (`Role_ID`) REFERENCES `Staff` (`Role_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Supplier`
+--
+ALTER TABLE `Supplier`
+  ADD CONSTRAINT `Supplier_ibfk_1` FOREIGN KEY (`Supplier_ID`) REFERENCES `Product` (`Supplier_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
