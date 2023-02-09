@@ -1,0 +1,34 @@
+version: '4.16.3' # Docker Version
+services:
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=WakeIceCreamDB
+      - MYSQL_USER=wakeicecream_user # TODO: CHANGE
+      - MYSQL_PASSWORD=password # TODO: CHANGE this should live in a env var
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to Trueg
+    volumes:
+      - "./database:/docker-entrypoint-initdb.d" # this is how we persist a sql db even when container stops
+
+  apache-php-environment:
+    container_name: php-apache
+    build:
+      context: ./php
+      dockerfile: DockerFile
+    depends_on:
+      - db
+    volumes:
+      - "./:/var/www/html" # Sync dir with container dir 
+    ports:
+      - 80:80
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=db # Grabs variables from the "db" service
+      - PMA_PORT=3306 # Default value
+    depends_on:
+      - db  
+    
