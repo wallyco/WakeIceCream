@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -49,7 +50,7 @@
                     </div><br>
   
                     <div class="pt-1 mb-4 d-inline-flex">
-                      <button id="loginButton" class="btn btn-dark btn-lg btn-block px-4" type="button" style="background-color: #9836da; border-radius: 2rem;">Login</button>
+                      <button id="loginButton" class="btn btn-dark btn-lg btn-block px-4" type="button" onclick="return ajaxcall()" style="background-color: #9836da; border-radius: 2rem;">Login</button>
                     </div><br>
   
                     <a class="small" href="#!" style="color: #ffffff;">Forgot password?</a>
@@ -68,4 +69,26 @@
 </body>
 
 </html>
-<script src="js/login.js"></script>
+<script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script>
+  function ajaxcall(){
+  let _email = document.getElementById("form2Example17").value;
+  let _password = document.getElementById("form2Example27").value;
+    $.ajax({
+      url: "php/query_for_login.php",
+      type: "POST",
+      datatype: 'json',
+      data: {email: _email,
+             password: _password},
+      success:function(result){
+        if(result == "1"){
+          document.location.href = "/dashboard.html";
+        }
+      },
+      error: function(){
+        console.log("error");
+        console.log("here");
+      }
+    });
+  }
+</script>
