@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Feb 07, 2023 at 05:19 PM
+-- Generation Time: Feb 14, 2023 at 10:31 PM
 -- Server version: 8.0.32
--- PHP Version: 8.0.19
+-- PHP Version: 8.1.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -85,7 +85,8 @@ CREATE TABLE `Staff` (
 --
 
 INSERT INTO `Staff` (`Staff_ID`, `First_Name`, `Last_Name`, `Address`, `Phone`, `Email`, `Password`, `Role_ID`) VALUES
-(1, 'Josh', 'Pierce', 'test', 342788292, 'testing@test', '12345', 0);
+(1, 'Josh', 'Pierce', 'test', 342788292, 'testing@test', '12345', 0),
+(2, 'test', 'test', 'test', 6095552022, 'test1@test', '123', 1);
 
 -- --------------------------------------------------------
 
