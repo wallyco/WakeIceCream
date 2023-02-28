@@ -81,13 +81,12 @@
       data: {email: _email,
              password: _password},
       success:function(result){
-        if(result == "1"){
-          document.location.href = "/dashboard.html";
+        if(result[0] == "1"){
+          document.location.href = "/dashboard.html?role=".concat(result[1]);
         }
       },
       error: function(){
         console.log("error");
-        console.log("here");
       }
     });
   }
