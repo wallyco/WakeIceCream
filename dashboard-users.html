@@ -148,7 +148,7 @@
                 <div class="row">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <a class="navbar-brand">Create New User</a>
+                            <a class="navbar-brand" id="create-user">Create New User</a>
                         </div>
                     </nav>
                     <div class="col-lg-6 m-auto">
@@ -156,7 +156,7 @@
                         <form>
                 
                             <br><br>
-                            <div class="card">
+                            <div class="card" id="add-user" style="visibility:hidden;">
                 
                                 <div class="card-header bg-primary">
                                     <h1 class="text-white text-center"> Add New User </h1>
@@ -202,6 +202,10 @@
 </html>
 <script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script>
+  document.getElementById("create-user").addEventListener("click", checkRole);
+  const url = new URLSearchParams(window.location.search);
+  const roleValue = url.get('role');
+
   function ajaxcall(){
     let _firstname = document.getElementById("First_Name").value;
     let _lastname = document.getElementById("Last_Name").value;
@@ -231,5 +235,16 @@
             console.log("error");
         }
         });
+  }
+  
+  // Hides certain elements by ID if the required role is not met. In the future, parameters can be passed in with each check to change the element checked, role level required, and contents hidden individually. 
+  function checkRole(){
+    if (roleValue >= 1) {
+        document.getElementById("add-user").style.visibility = "visible";
+    } else {
+        document.getElementById("add-user").style.display = "hidden";
+        alert("User does not meet role requirements to create a new user.")
+    }
+
   }
 </script>
