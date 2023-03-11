@@ -1,0 +1,215 @@
+<<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dashboard</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="../js/redirect.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<!-- SIDEBAR -->
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-wrapper" style="background-color: #a64de2;">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        Hi, Username
+                        <!-- TODO fetch -->
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-home"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="redirectUser('')">
+                            <i class="pe-7s-note2"></i>
+                            <p>DASHBOARD</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="redirectUser('-users')">
+                            <i class="pe-7s-note2"></i>
+                            <p>USERS</p>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a onclick="redirectUser('-products')">
+                            <i class="pe-7s-note2"></i>
+                            <p>PRODUCTS</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-graph3"></i>
+                            <p>Reports</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-star"></i>
+                            <p>Favorites</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-mail"></i>
+                            <p>Emails</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-settings"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="active-pro">
+                        <a href="">
+                            <i class="pe-7s-rocket"></i>
+                            <p>Upgrade to PRO</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+<!-- END OF SIDE BAR -->
+<!-- TOP-NAV BAR -->
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Dashboard</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                        class="fa fa-search"></i></button>
+                            </form>
+                        </li>
+                        <li class="separator hidden-lg"></li>
+                    </ul>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell"></i>
+                                    <b class="caret hidden-lg hidden-md"></b>
+                                    <p class="hidden-lg hidden-md">
+                                        5 Notifications
+                                        <b class="caret"></b>
+                                    </p>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Notification 1</a></li>
+                                    <li><a href="#">Notification 2</a></li>
+                                    <li><a href="#">Notification 3</a></li>
+                                    <li><a href="#">Notification 4</a></li>
+                                    <li><a href="#">Another notification</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<!-- END OF TOP-NAV BAR -->
+<!-- MAIN CONTENT WINDOW -->
+<div class="content" style="background-color: rgb(255, 212, 249);">
+    <div class="d-inline-flex">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" id="create-user">Add products</a>
+                </div>
+            </nav>
+            <div class="col-lg-6 m-auto">
+		<table>
+			<thead>
+				<tr>
+					<th>Product ID</th>
+					<th>Product Name</th>
+					<th>Description</th>
+					<th>Product Unit</th>
+					<th>Product Price</th>
+					<th>Product Quantity</th>
+					<th>Product Status</th>
+					<th>Supplier ID</th>
+					<th>Category ID</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				// connect to the database
+				$mysqli = new mysqli('db', 'wakeicecream_user', 'password', 'WakeIceCreamDB'); 
+
+				// check for connection errors
+				if ($mysqli->connect_error) {
+					die('Connect Error (' . $mysqli->connect_errno . ') '
+						. $mysqli->connect_error);
+				}
+
+				// query the database
+				$result = $mysqli->query('SELECT Product_ID, Product_Name, Description, Product_Unit, Product_Price, Product_Quantity, Product_Status, Supplier_ID, Category_ID FROM `Product`');
+
+				// loop through the result set
+				while ($row = $result->fetch_assoc()) {
+					echo "<tr>";
+					echo "<td>" . $row['Product_ID'] . "</td>";
+					echo "<td>" . $row['Product_Name'] . "</td>";
+					echo "<td>" . $row['Description'] . "</td>";
+					echo "<td>" . $row['Product_Unit'] . "</td>";
+					echo "<td>" . $row['Product_Price'] . "</td>";
+					echo "<td>" . $row['Product_Quantity'] . "</td>";
+					echo "<td>" . $row['Product_Status'] . "</td>";
+					echo "<td>" . $row['Supplier_ID'] . "</td>";
+					echo "<td>" . $row['Category_ID'] . "</td>";
+					echo "</tr>";
+				}
+
+				// close the database connection
+				$mysqli->close();
+				?>
+			</tbody>
+		</table>
+</body>
+</html>
