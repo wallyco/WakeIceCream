@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Feb 28, 2023 at 12:55 AM
+-- Generation Time: Mar 11, 2023 at 04:38 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.15
 
@@ -65,8 +65,7 @@ CREATE TABLE `Product` (
 
 INSERT INTO `Product` (`Product_ID`, `Product_Name`, `Description`, `Product_Unit`, `Product_Price`, `Product_Quantity`, `Product_Status`, `Supplier_ID`, `Category_ID`) VALUES
 (1, 'Chocolate Ice Cream', 'Ice cream with natural chocolate flavoring', 'pint', 90.00, 3, 'Active ', 1, 1),
-(2, 'Mango Topping', 'Topping made from the mango fruit', 'ounce', 25.50, 60, 'Active ', 4, 2),
-(5, 'qqq1', 'qqq1', 'qqq', 5.00, 4, 'qqq', NULL, NULL);
+(2, 'Mango Topping', 'Topping made from the mango fruit', 'ounce', 25.50, 60, 'Active ', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,8 @@ CREATE TABLE `Role` (
 
 INSERT INTO `Role` (`Role_ID`, `Role_Name`, `Auth_Level`) VALUES
 (0, 'Admin', 0),
-(1, 'Staff', 1);
+(1, 'Staff', 1),
+(2, 'Manager', 2);
 
 -- --------------------------------------------------------
 
@@ -191,13 +191,13 @@ ALTER TABLE `Category`
 -- AUTO_INCREMENT for table `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `Product_ID` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Product_ID` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `Staff`
 --
 ALTER TABLE `Staff`
-  MODIFY `Staff_ID` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Staff_ID` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `Supplier`
