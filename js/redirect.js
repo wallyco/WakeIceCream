@@ -8,4 +8,4 @@ function redirectUser(location,wholeURL=false){
     document.location.href = location+'?role='+roleValue;
   }
 }
-
+document.getElementById("username").innerHTML = `Hi, ${localStorage.getItem("username")}`
