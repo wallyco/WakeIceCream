@@ -24,10 +24,22 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    
-    <!-- JS -->
-    <script src="js/redirect.js" type="text/javascript"></script>
 
+    <style>
+        #test {
+            color: black;
+            font-size: 16px;
+        }
+
+        .addUser {
+            width: 98%;
+            padding-left: 10px;
+        }
+
+        #userButton {
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +48,7 @@
         <div class="sidebar">
             <div class="sidebar-wrapper" style="background-color: #a64de2;">
                 <div class="logo">
-                    <a href="" class="simple-text">
+                    <a href="" class="simple-text" id="username">
                         Hi, Username
                         <!-- TODO fetch -->
                     </a>
@@ -172,32 +184,33 @@
                                 <div class="card-header bg-primary">
                                     <h1 class="text-white text-center"> Add New User </h1>
                                 </div><br>
-                
-                                <label> First Name: </label>
+                                <div class="addUser">
+                                <label id="test"> First Name: </label>
                                 <input type="text" id="First_Name" class="form-control"> <br>
                 
-                                <label> Last Name: </label>
+                                <label id="test"> Last Name: </label>
                                 <input type="text" id="Last_Name" class="form-control"> <br>
                 
-                                <label> Address: </label>
+                                <label id="test"> Address: </label>
                                 <input type="text" id="Address" class="form-control"> <br>
                 
-                                <label>Phone Number: </label>
+                                <label id="test">Phone Number: </label>
                                 <input type="number" id="Phone" class="form-control"> <br>
                 
-                                <label> Email Address: </label>
+                                <label id="test"> Email Address: </label>
                                 <input type="text" id="Email" class="form-control"> <br>
                 
-                                <label> Password: </label>
+                                <label id="test"> Password: </label>
                                 <input type="text" id="Password" class="form-control"> <br> 
                 
-                                <label> Role ID: </label>
+                                <label id="test"> Role ID: </label>
                                 <select id="Role_ID" class="form-control"> <br>
                                     <option value="1">Team Member</option>
                                     <option value="2">Manager</option>
                                 </select>
-       
-                                <button class="btn btn-success" type="button" name="submit" onclick="return ajaxcall()"> Submit </button><br>
+                                
+                                <button class="btn btn-success" type="button" name="submit" onclick="return ajaxcall()" id="userButton"> Submit </button><br>
+                                </div>
                                 <!-- 
                                     Change to clear form
                                     <a class="btn btn-info" type="submit" name="cancel" href="index.php"> Cancel </a><br> -->
@@ -211,6 +224,7 @@
 </body>
 </html>
 <script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="js/redirect.js" type="text/javascript"></script>
 <script>
   document.getElementById("create-user").addEventListener("click", checkRole);
 
