@@ -243,11 +243,14 @@
         document.getElementById("add-products").addEventListener("click", displayAddProduct);
 
         // REDIRECT
-        function displayAddProduct(){
+        function displayAddProduct() {
             redirectUser('-products');
         }
-        function editRow(id){
-            redirectUser('edit_product.php?Product_ID='+id, true)
+
+        function editRow(id) {
+            document.location.href = 'edit_product.php?Product_ID=' + id;
+
+            // redirectUser('edit_product.php?Product_ID='+id, true)
         }
     </script>
 

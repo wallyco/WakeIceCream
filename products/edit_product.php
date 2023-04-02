@@ -13,21 +13,28 @@ $Category_ID = "";
 
 $error = "";
 $success = "";
+// connect to the database
+$mysqli = new mysqli('db', 'wakeicecream_user', 'password', 'WakeIceCreamDB');
+
+// check for connection errors
+if ($mysqli->connect_error) {
+    die('Connect Error (' . $mysqli->connect_errno . ') '
+        . $mysqli->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     if (!isset($_GET['Product_ID'])) {
-        header("location:products/inventory_new.php");
+        header("location:products/inventory.php");
         exit;
     }
     $Product_ID = $_GET['Product_ID'];
-    $Product_ID = $Product_ID[0];
-    $sql = "select * from Product where Product_ID=$Product_ID";    
-    $result = $conn->query($sql);
+
+    $sql = "select * from `Product` where Product_ID=$Product_ID";
+
+    $result = $mysqli->query($sql);
+    // loop through the result set
     $row = $result->fetch_assoc();
-    while (!$row) {
-        header("location: products/inventory_new.php");
-        exit;
-    }
+
     $Product_Name = $row["Product_Name"];
     $Description = $row["Description"];
     $Product_Unit = $row["Product_Unit"];
@@ -37,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $Supplier_ID = $row["Supplier_ID"];
     $Category_ID = $row["Category_ID"];
 } else {
-    // $Product_ID = $_POST["Product_ID"];
     $Product_ID = $_GET['Product_ID'];
     $Product_Name = $_POST["Product_Name"];
     $Description = $_POST["Description"];
@@ -48,44 +54,22 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $Supplier_ID = $_POST["Supplier_ID"];
     $Category_ID = $_POST["Category_ID"];
 
+    $Supplier_filter = '';
+    if ($Supplier_ID) {
+        $Supplier_filter = ", Supplier_ID='$Supplier_ID'";
+    }
+
+    $Category_filter = '';
+    if ($Category_ID) {
+        $Category_filter = ", Category_ID='$Category_ID'";
+    }
     $sql = "update Product set Product_Name='$Product_Name', Description='$Description', Product_Unit='$Product_Unit', 
-        Product_Price=$Product_Price,Product_Quantity=$Product_Quantity, Product_Status='$Product_Status' , Supplier_ID='$Supplier_ID', Category_ID='$Category_ID' 
-        where Product_ID =$Product_ID ";
-    // echo $sql;
-    // exit;
+        Product_Price=$Product_Price,Product_Quantity=$Product_Quantity, Product_Status='$Product_Status' " . $Supplier_filter . $Category_filter .  " where Product_ID =$Product_ID ";
+
     $result = $conn->query($sql);
 }
 
 ?>
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>CRUD</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">UPDATE PRODUCT</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="create.php"><span style="font-size:larger;">Add New</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
 <!doctype html>
 <html lang="en">
 
@@ -120,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
 </head>
 
-<body>
+<body onload="init();">
     <!-- SIDEBAR -->
     <div class="wrapper">
         <div class="sidebar">
@@ -245,9 +229,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                     <div class="row">
                         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <div class="container-fluid">
-                                <button type="button" class="btn btn-primary btn" id="add-products">Add Product</button>
-                                <button type="button" class="btn btn-primary btn" id="update-product">Update Product</button>
-                                <a type="button" class="btn btn-primary btn" id="display-inventory">Display Inventory</button></a>
+
+                                <button type="button" class="btn btn-primary btn" id="add-product">Update Product</button>
+                                <a button type="button" class="btn btn-primary btn" href="inventory.php">Display Inventory</button></a>
 
                             </div>
                         </nav>
@@ -285,42 +269,50 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
                                     <label> Supplier ID: </label>
                                     <select class="form-control" name="Supplier_ID">
-                                        <option disabled selected>-- Select Supplier ID --</option>
+
                                         <?php
                                         $records = mysqli_query($conn, "SELECT * FROM Supplier");
                                         while ($data = mysqli_fetch_array($records, MYSQLI_ASSOC)) :;
+                                            $selected = '';
+                                            if ($Supplier_ID == $data['Supplier_ID']) {
+                                                $selected = 'selected';
+                                            }
                                         ?>
 
-                                            <option value="<?php echo $data['Supplier_ID'];
-                                                            ?>">
-                                                <?php echo $data['Name'];
-                                                ?>
+                                            <option value="<?php echo $data['Supplier_ID']; ?>" <?php echo $selected ?>>
+                                                <?php echo $data['Name']; ?>
                                             </option>
                                         <?php
                                         endwhile;
                                         ?>
+
                                     </select>
 
 
                                     <label> Category ID: </label>
                                     <select class="form-control" name="Category_ID">
-                                        <option disabled selected>-- Select Category ID --</option>
+
                                         <?php
                                         $records = mysqli_query($conn, "SELECT * FROM Category");
                                         while ($data = mysqli_fetch_array($records, MYSQLI_ASSOC)) :;
+                                            $selected = '';
+                                            if ($Category_ID == $data['Category_ID']) {
+                                                $selected = 'selected';
+                                            }
                                         ?>
 
-                                            <option value="<?php echo $data['Category_ID'];
-                                                            ?>">
-                                                <?php echo $data['Category_Name'];
-                                                ?>
+                                            <option value="<?php echo $data['Category_ID']; ?>" <?php echo $selected ?>>
+
+                                                <?php echo $data['Category_Name']; ?>
+
                                             </option>
                                         <?php
                                         endwhile;
                                         ?>
                                     </select>
                                     <button class="btn btn-success" type="submit" name="submit"> Submit </button><br>
-                                    <a class="btn btn-info" type="submit" name="cancel" href="inventory_new.php"> Cancel </a><br>
+
+                                    <a class="btn btn-info" type="submit" name="cancel" href="inventory.php"> Cancel </a><br>
 
                                 </div>
                             </form>
@@ -332,23 +324,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
 <?php
 if (isset($_POST['submit'])) {
-    $url = 'http://localhost:8000/products/inventory_new.php';
+    $url = '/products/inventory.php';
 
-    echo "<script> redirectUser('/products/inventory.php',true); </script>";
+    echo "<script> location.href='$url'; </script>";
     exit;
 }
 
 ?>
-
-<script>
-        document.getElementById("add-products").addEventListener("click", displayAddProduct);
-        document.getElementById("display-inventory").addEventListener("click", displayInventory);
-        // REDIRECT
-        function displayAddProduct(){
-            redirectUser('-products');
-        }
-        function displayInventory(){
-            redirectUser("/products/inventory.php",true);
-        }
-</script>
-    
