@@ -36,9 +36,8 @@
             <div class="sidebar">
                 <div class="sidebar-wrapper" style="background-color: #a64de2;">
                     <div class="logo">
-                        <a href="" class="simple-text">
+                        <a href="" class="simple-text" id="username">
                             Hi, Username
-                            <!-- TODO fetch -->
                         </a>
                     </div>
                     <ul class="nav">
