@@ -1,71 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Login</title>
-  <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+    <title>Dashboard</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    
+    <!-- JS -->
+    <script src="js/redirect.js" type="text/javascript"></script>
 </head>
 
 <body>
-  <section class="vh-100" style="background-color: #f5ceee;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card" style="border-radius: 2rem; background-color: #a64de2;">
-            <div class="row g-0">
-              <div class="col-md-6 col-lg-7 d-none d-md-block" style="background-color: #a64de2; border-radius:2rem 0 0 2rem;box-shadow: 0 0 10px rgba(91, 25, 104, 0.8);">
-                <img
-                  src="img/eaters-collective-rS1GogPLVHk-unsplash.jpg"
-                  alt="login form"
-                  class="img-fluid" style="border-radius: 2rem 0 0 2rem; width: 100%;height: 100%;"
-                />
-              </div>
-              <div class="col-md-4 col-lg-5 d-flex align-items-center" style="box-shadow: 0 0 10px rgba(91, 25, 104, 0.8); border-radius: 0 2rem 2rem 0;">
-                <div class="card-body p-4 p-lg-5 text-black">
-  
-                  <form>
-  
-                    <div class="d-inline-flex align-items-center p-2" style="background-color: #a64de2; border-radius: 0.4rem 1rem 1rem 0.4rem;">
-                      <span class="h1 fw-bold my-1 text-light" style="font-size: 1.8rem;">Welcome Back</span>
-                    </div>
-  
-                    <h5 class="fw-normal mb-1 pb-3 mt-4 ms-3" style="letter-spacing: 1px;font-size: small;">Sign into your account</h5>
-  
-                    <div class="form-outline mb-4" style="border-bottom: 2px solid rgb(133, 133, 133);">
-                      <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example17">Email address</label>
-                    </div>
-  
-                    <div class="form-outline mb-4" style="border-bottom: 2px solid rgb(133, 133, 133);">
-                      <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example27">Password</label>
-                    </div><br>
-  
-                    <div class="pt-1 mb-4 d-inline-flex">
-                      <button id="loginButton" class="btn btn-dark btn-lg btn-block px-4" type="button" onclick="return ajaxcall()" style="background-color: #9836da; border-radius: 2rem;">Login</button>
-                    </div><br>
-  
-                    <a class="small" href="#!" style="color: #ffffff;">Forgot password?</a>
-                    <p class="pb-lg-2" style="color: #ffffff;">Don't have an account? <a href="#!" style="color: #ffffff;">Register here</a></p>
-                  </form>
-  
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-wrapper" style="background-color: #a64de2;">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        Hi, Username
+                    </a>
                 </div>
-              </div>
+                <ul class="nav">
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-home"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <!-- TODO move this around -->
+                    <li class="active">
+                        <a onclick="redirectUser('')">
+                            <i class="pe-7s-note2"></i>
+                            <p>DASHBOARD</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="redirectUser('-users')">
+                            <i class="pe-7s-note2"></i>
+                            <p>USERS</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="redirectUser('-products')">
+                            <i class="pe-7s-note2"></i>
+                            <p>PRODUCTS</p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-graph3"></i>
+                            <p>Reports</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-star"></i>
+                            <p>Favorites</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-mail"></i>
+                            <p>Emails</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="pe-7s-settings"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="active-pro">
+                        <a href="">
+                            <i class="pe-7s-rocket"></i>
+                            <p>Upgrade to PRO</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Dashboard</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell"></i>
+                                    <b class="caret hidden-lg hidden-md"></b>
+                                    <p class="hidden-lg hidden-md">
+                                        5 Notifications
+                                        <b class="caret"></b>
+                                    </p>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Notification 1</a></li>
+                                    <li><a href="#">Notification 2</a></li>
+                                    <li><a href="#">Notification 3</a></li>
+                                    <li><a href="#">Notification 4</a></li>
+                                    <li><a href="#">Another notification</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                            class="fa fa-search"></i></button>
+                                </form>
+                            </li>
+                            <li class="separator hidden-lg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content" style="background-color: rgb(255, 212, 249);">
+                <div class="d-inline-flex">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-1">
+                            <div class="card ccard text-center" style="color: white;">
+                                
+                                <div class="content text-center">
+									<a onclick="redirectUser('-users')">
+										<h4 class="title" style="color: white;">USERS</h4> 
+                                        <p style="color: #a64de2;">Add new users to system</p>
+									</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-1">
+                            <div class="card ccard text-center" style="color: white;">
+                                <div class="content text-center">
+                                    <a onclick="redirectUser('-products')">
+                                        <h4 class="title" style="color: white;">PRODUCTS</h4>
+                                        <p style="color: #a64de2;">Add products users to inventory</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-3 col-sm-2">
+                                <div class="card ccard text-center" style="color: white;">
+                                    <div class="content text-center">
+                                        <!-- number of current users-->
+                                        <h2 class="title" style="color: white;"><b>700K</b></h2>
+                                        <h4 class="title" style="color: white;">Current Users</h4>
+                                    </div>
+                                </div>
+                                <div class="card ccard text-center" style="color: white;">
+                                    <div class="header">
+                                        <h4 class="title" style="color: white;">Current Date:</h4>
+                                    </div>
+                                    <div class="content text-center">
+                                        <!-- date -->
+                                        <p id="datetime"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card ccard text-center" style="color: white;">
+                                    <div class="content text-center">
+                                        <!--number of current products-->
+                                        <h2 class="title" style="color: white;"><b>14,550</b></h2>
+                                        <h4 class="title" style="color: white;">Products</h4>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card ">
+                                    <!--Add company logo-->
+                                    <div class="header">
+                                        <h4 class="title">2014 Sales</h4>
+                                        <p class="category">All products including Taxes</p>
+                                    </div>
+                                    <div class="content">
+                                        <div id="chartActivity" class="ct-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-  
+
 </body>
 
 </html>
@@ -97,5 +257,10 @@
         alert(result);
       }
     });
-  }
 </script>
+<script type="text/javascript">
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt;
+</script>
+</html>
+
