@@ -228,23 +228,34 @@
 
 </body>
 
-<!--   Core JS Files   -->
-<script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Charts Plugin -->
-<script src="/js/chartist.min.js"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="/js/demo.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        demo.initChartist();
+</html>
+<script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script>
+  let username = "";
+  function ajaxcall(){
+  let _email = document.getElementById("form2Example17").value;
+  let _password = document.getElementById("form2Example27").value;
+    $.ajax({
+      url: "php/query_for_login.php",
+      type: "POST",
+      datatype: 'json',
+      data: {email: _email,
+             password: _password},
+      success:function(result){
+        if(result[0] == "1"){
+          var length = result[2];
+          result_offset = 4;   
+          for(let i = 0; i < length; i++){
+            username += result[i+result_offset];
+          }
+          localStorage.setItem("username",username)
+          document.location.href = "/dashboard.html?role=".concat(result[1]); 
+        }
+      },
+      error: function(){
+        console.log("error: " + result);
+        alert(result);
+      }
     });
 </script>
 <script type="text/javascript">
