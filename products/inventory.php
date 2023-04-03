@@ -26,7 +26,7 @@
         <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
         <!-- JS -->
-        <script src="../js/redirect.js" type="text/javascript"></script>
+
 
     </head>
 
@@ -237,7 +237,7 @@
     </body>
 
     </html>
-
+    <script src="../js/redirect.js" type="text/javascript"></script>
     <script>
         document.getElementById("add-products").addEventListener("click", displayAddProduct);
 

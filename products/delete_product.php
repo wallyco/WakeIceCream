@@ -1,5 +1,4 @@
 <?php
-// define('SITEURL', 'http://localhost:8000/');
 
 include "connection.php";
 if (isset($_GET['Product_ID'])) {
