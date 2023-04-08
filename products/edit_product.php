@@ -319,7 +319,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 </body>
 
 </html>
-
+<script src="../js/redirect.js" type="text/javascript"></script>
 
 <?php
 if (isset($_POST['submit'])) {
