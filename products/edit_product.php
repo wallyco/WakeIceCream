@@ -100,8 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     <!-- JS -->
     <script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
     <script src="js/products.js" type="text/javascript"></script>
-    <script src="/js/redirect.js" type="text/javascript"></script>
-
 </head>
 
 <body onload="init();">
@@ -317,10 +315,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                             </form>
                         </div>
 </body>
-
 </html>
 <script src="../js/redirect.js" type="text/javascript"></script>
-
 <?php
 if (isset($_POST['submit'])) {
     $url = '/products/inventory.php';
