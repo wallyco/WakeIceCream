@@ -181,13 +181,6 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-2">
                                 <div class="card ccard text-center" style="color: white;">
-                                    <div class="content text-center">
-                                        <!-- number of current users-->
-                                        <h2 class="title" style="color: white;"><b>700K</b></h2>
-                                        <h4 class="title" style="color: white;">Current Users</h4>
-                                    </div>
-                                </div>
-                                <div class="card ccard text-center" style="color: white;">
                                     <div class="header">
                                         <h4 class="title" style="color: white;">Current Date:</h4>
                                     </div>
@@ -196,29 +189,31 @@
                                         <p id="datetime"></p>
                                     </div>
                                 </div>
+                                <div class="card ccard text-center" style="color: white;">
+                                    <div class="content text-center">
+                                        <a onclick="location.href='login.html'">
+                                        <!-- logout button-->
+                                            <h4 class="title" style="color: #a64de2;">Logout</h4>
+                                        </a>
+                                    </div>
+                                </div> 
                             </div>
                             <div class="col-md-3">
                                 <div class="card ccard text-center" style="color: white;">
                                     <div class="content text-center">
                                         <!--number of current products-->
-                                        <h2 class="title" style="color: white;"><b>14,550</b></h2>
+                                        <h2 class="title" id="product_num" style="color: white;"><b></b></h2>
                                         <h4 class="title" style="color: white;">Products</h4>
                                     </div>
-                                </div>
-                                
+                                </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="card ">
                                     <!--Add company logo-->
-                                    <div class="header">
-                                        <h4 class="title">2014 Sales</h4>
-                                        <p class="category">All products including Taxes</p>
-                                    </div>
-                                    <div class="content">
-                                        <div id="chartActivity" class="ct-chart"></div>
-                                    </div>
+                                    <img src="img/WakeIceCreamLogo.png" alt="logo" class="img-fluid" style="border-radius: 2rem 0 0 2rem; width: 100%;height: 100%;" />
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -251,6 +246,23 @@
 <script type="text/javascript">
     var dt = new Date();
     document.getElementById("datetime").innerHTML = dt;
+</script>
+<script>
+        $.ajax({
+        url: "php/product_num.php",
+        type: "POST",
+        datatype: 'html',
+        
+        success: function(data) {
+            
+        },
+        error: function(){
+        console.log("error: " + result);
+        alert(result);
+      }
+    });
+    
+    
 </script>
 </html>
 
