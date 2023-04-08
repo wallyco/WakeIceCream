@@ -170,20 +170,20 @@
                                     <!-- <button class="navbar-brand" type="button" id="add-product">Add products</button> -->
                                 </div>
                             </nav>
-                            <div class="m-auto">
-                                <table>
+                            <div class="container-fluid">
+                                <table class="table table-hover table-danger mx-5">
                                     <thead>
-                                        <tr>
-                                            <th>Product ID</th>
-                                            <th>Product Name</th>
-                                            <th>Description</th>
-                                            <th>Product Unit</th>
-                                            <th>Product Price</th>
-                                            <th>Product Quantity</th>
-                                            <th>Product Status</th>
-                                            <th>Supplier ID</th>
-                                            <th>Category ID</th>
-                                            <th>Actions</th>
+                                        <tr scope="row">
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product ID</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product Name</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Description</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product Unit</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product Price</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product Quantity</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Product Status</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Supplier ID</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Category ID</th>
+                                            <th scope="col" style="color: black; border: 1px solid #a64de2;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -208,24 +208,24 @@
                                         $result = $mysqli->query($sql);
                                         // loop through the result set
                                         while ($row = $result->fetch_assoc()) {
-                                            echo "<tr>";
-                                            echo "<td>" . $row['Product_ID'] . "</td>";
-                                            echo "<td>" . $row['Product_Name'] . "</td>";
-                                            echo "<td>" . $row['Description'] . "</td>";
-                                            echo "<td>" . $row['Product_Unit'] . "</td>";
-                                            echo "<td>" . $row['Product_Price'] . "</td>";
-                                            echo "<td>" . $row['Product_Quantity'] . "</td>";
-                                            echo "<td>" . $row['Product_Status'] . "</td>";
-                                            echo "<td>" . $row['Supplier_ID'] . "</td>";
-                                            echo "<td>" . $row['Category_ID'] . "</td>";
+                                            echo "<tr scope=\"row\" style=\"border: 1px solid #a64de2;\">";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_ID'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_Name'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Description'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_Unit'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_Price'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_Quantity'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Product_Status'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Supplier_ID'] . "</td>";
+                                            echo "<td scope=\"col\" style=\"border: 1px solid #a64de2;\">" . $row['Category_ID'] . "</td>";
                                             echo "
-                                            <td>
-                                           
-                                            <a button type='button' class='btn btn-success' onclick='editRow($row[Product_ID])' >Edit</button></a>
-                                            <a button type='button' class='btn btn-success' href='delete_product.php?Product_ID=$row[Product_ID]' >Delete</button></a>
-                                            
-                                            </td>";
-                                            echo "</tr>";
+                                            <td class=\"\" scope=\"col\" style=\"border: 1px solid #a64de2;\">
+                                            <div class=\"\" style=\"color: red;display: flex;\">
+                                                <button type=\"button\" class=\"btn\" style=\"background-color: #b80ff2; color: white; border: 2px solid white; margin: 2px;\" onclick='editRow($row[Product_ID])'>Edit</button>
+                                                <a button type=\"button\" class=\"btn\" style=\"background-color: #cc41f2; color: white;  border: 2px solid white; margin: 2px;\"  href='delete_product.php?Product_ID=$row[Product_ID]'>Delete</button></a>
+                                            </div>  
+                                            </td>
+                                            <tr/>";
                                         }
                                         //  href='edit_product.php?Product_ID=$row[Product_ID]
                                         // close the database connection
