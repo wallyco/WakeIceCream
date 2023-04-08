@@ -202,8 +202,8 @@
                                 <div class="card ccard text-center" style="color: white;">
                                     <div class="content text-center">
                                         <!--number of current products-->
-                                        <h2 class="title" id="product_num" style="color: white;"><b></b></h2>
-                                        <h4 class="title" style="color: white;">Products</h4>
+                                        <h4 class="title" style="color: white;">Products in Inventory</h4>
+                                        <h3 id="product_num"></h3>
                                     </div>
                                 </div>  
                             </div>
@@ -248,13 +248,14 @@
     document.getElementById("datetime").innerHTML = dt;
 </script>
 <script>
+        var product_num = document.getElementById("product_num");
         $.ajax({
         url: "php/product_num.php",
         type: "POST",
         datatype: 'html',
         
         success: function(data) {
-            
+            product_num.innerHTML = data[0]
         },
         error: function(){
         console.log("error: " + result);
