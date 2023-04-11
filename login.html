@@ -85,7 +85,8 @@
             username += result[i+result_offset];
           }
           localStorage.setItem("username",username)
-          document.location.href = "/dashboard.html?role=".concat(result[1]); 
+          localStorage.setItem("role",result[1])
+          document.location.href = "/dashboard.html"; 
         }
       },
       error: function(){
