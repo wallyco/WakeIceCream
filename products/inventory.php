@@ -33,73 +33,36 @@
     <body>
         <!-- SIDEBAR -->
         <div class="wrapper">
-            <div class="sidebar">
-                <div class="sidebar-wrapper" style="background-color: #a64de2;">
-                    <div class="logo">
-                        <a href="" class="simple-text" id="username">
-                            Hi, Username
-                        </a>
-                    </div>
-                    <ul class="nav">
-                        <li>
-                            <a href="">
-                                <i class="pe-7s-home"></i>
-                                <p>Home</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="redirectUser('')">
-                                <i class="pe-7s-note2"></i>
-                                <p>DASHBOARD</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="redirectUser('-users')">
-                                <i class="pe-7s-note2"></i>
-                                <p>USERS</p>
-                            </a>
-                        </li>
-
-                        <li class="active">
-                            <a onclick="redirectUser('-products')">
-                                <i class="pe-7s-note2"></i>
-                                <p>PRODUCTS</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="">
-                                <i class="pe-7s-graph3"></i>
-                                <p>Reports</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="pe-7s-star"></i>
-                                <p>Favorites</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="pe-7s-mail"></i>
-                                <p>Emails</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="pe-7s-settings"></i>
-                                <p>Settings</p>
-                            </a>
-                        </li>
-                        <li class="active-pro">
-                            <a href="">
-                                <i class="pe-7s-rocket"></i>
-                                <p>Upgrade to PRO</p>
-                            </a>
-                        </li>
-                    </ul>
+        <div class="sidebar">
+            <div class="sidebar-wrapper" style="background-color: #a64de2;">
+                <div class="logo">
+                    <a href="" class="simple-text" id="username">
+                        Hi, Username
+                    </a>
                 </div>
+                <ul class="nav">
+                    <li>
+                        <a onclick="redirectUser('')">
+                            <i class="pe-7s-home"></i>
+                            <p>DASHBOARD</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="redirectUser('-users')">
+                            <i class="pe-7s-note2"></i>
+                            <p>USERS</p>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a onclick="redirectUser('-products')">
+                            <i class="pe-7s-graph3"></i>
+                            <p>PRODUCTS</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
             <!-- END OF SIDE BAR -->
             <!-- TOP-NAV BAR -->
             <div class="main-panel">
