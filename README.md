@@ -56,14 +56,10 @@ In VS Code, edit file __docker-compose.yml__
     - Dev Containers extension
 - Docker Desktop
     - URL: https://www.docker.com/products/docker-desktop/
-- Python v3.11.2
-    - https://www.python.org/downloads/
 - git
     - https://git-scm.com/downloads
 - GitHub
     - https://github.com/wallyco/WakeIceCream
-- FastAPI w/Uvicorn server & Starlette 
-    - https://fastapi.tiangolo.com/
 
 ## IMAGES DOWNLOADED
 - Downloaded images from ... 
